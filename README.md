@@ -8,7 +8,7 @@ That said, this is really a personal research repo so I e.g. haven't really been
 
 
 ## Some rough research motivations / thoughts
-### Apologies for the ramblingness. Feel free to ignore
+### These are personal notes. Apologies for the ramblingness. Feel free to ignore
 
 The goal of this research repo is to try to move ideas which have been successful in distribution matching - i.e. things trained with cross-entropy loss like supervised / unsupervised learning and notably large scale pretraining - and test them in the case of policy gradients.
 
@@ -29,4 +29,4 @@ In this project, I'm probably mainly going to be using VPG as a baseline. That's
 
 ## What's the current status of this project?
 
-I'm taking a break for a bit because I've realised I should really just actually be going for reasoning on larger models if I want to show this is actually useful for things people care about. Also a lot of the motivation is like 'ah yes this will work at moderate scale' and then just experimenting at tiny scales of game environments is sort of dumb. Because that's a bigger shift and motivation is important when you're doing things alone, I'm going to break for a month maybe to learn Pallas and then come back in early November and do this properly.
+Current results on small scale have tended to show small, though consistent, improvements over Adam. Results from pretraining suggest that differences are likely to be more pronounced in larger scale models. There are two options here: one is to try scaling up models on our current craftax environment; the other is to more directly go after the thing we care about, namely RL reasoning on language models. I think the correct thing to do here is almost certainly to take the latter approach: training Qwen3-base using LoRA on mathematical reasoning which seems like the standard testbed. This is probably going to require some infrastructure changes to handle distribution, quantisation etc. Next update should try to have a basic LoRA training set-up for Qwen3 and then we can port over the training moderately straightforwardly.
